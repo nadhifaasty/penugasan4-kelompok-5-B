@@ -1,0 +1,20 @@
+[project]
+name = "penugasan4-backend"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "nadhifa",email = "nadhifaasty@gmail.com"}
+]
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi (>=0.136.1,<0.137.0)",
+    "uvicorn (>=0.46.0,<0.47.0)",
+    "pydantic (>=2.13.3,<3.0.0)",
+    "sqlalchemy (>=2.0.49,<3.0.0)",
+    "psycopg2-binary (>=2.9.12,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
