@@ -38,16 +38,21 @@ export default function RegisterPage() {
     setIsLoading(true);
 
     try {
-      const res = await fetch("http://localhost:8000/register", {
+      const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://127.0.0.1:8000";
+      const res = await fetch(`${API_BASE_URL}/accounts/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          user_id: 1,
+          role_id: 2,
+          ...form,
+        }),
       });
       const data = await res.json();
       if (!res.ok) {
-        setServerMessage({ type: "error", text: data.message });
+        setServerMessage({ type: "error", text: data.detail || data.message || "Registrasi gagal" });
       } else {
-        setServerMessage({ type: "success", text: data.message });
+        setServerMessage({ type: "success", text: "Register berhasil!" });
         setForm({ username: "", email: "", password: "" });
       }
     } catch {

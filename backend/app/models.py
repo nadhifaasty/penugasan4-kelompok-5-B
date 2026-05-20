@@ -26,3 +26,18 @@ class RegisterRequest(BaseModel):
 class RegisterResponse(BaseModel):
     message: str
     username: str
+
+class EventResponse(BaseModel):
+    id: int
+    title: str
+    date: str
+    description: str
+
+class RegistrationRequest(BaseModel):
+    eventId: int
+    nama: str
+    nim: str
+    email: str
+
+class RegistrationResponse(BaseModel):
+    message: str

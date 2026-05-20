@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import auth
+from app.routers import auth, events
 from app.database import init_db
 
 app = FastAPI()
@@ -17,3 +17,4 @@ def startup():
     init_db()
 
 app.include_router(auth.router)
+app.include_router(events.router)
